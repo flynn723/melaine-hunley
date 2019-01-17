@@ -7,7 +7,7 @@
  * @package melaine_hunley
  */
 
-$THEME_VERSION = '0.0.1';
+$THEME_VERSION = '0.0.2';
 
 if ( ! function_exists( 'melaine_hunley_setup' ) ) :
   /**
@@ -67,10 +67,10 @@ if ( ! function_exists( 'melaine_hunley_setup' ) ) :
     ) );
 
     // Set up the WordPress core custom background feature.
-    add_theme_support( 'custom-background', apply_filters( 'melaine_hunley_custom_background_args', array(
-      'default-color' => 'ffffff',
-      'default-image' => '',
-    ) ) );
+    // add_theme_support( 'custom-background', apply_filters( 'melaine_hunley_custom_background_args', array(
+    //   'default-color' => 'ffffff',
+    //   'default-image' => '',
+    // ) ) );
 
     // Add theme support for selective refresh for widgets.
     add_theme_support( 'customize-selective-refresh-widgets' );
@@ -93,7 +93,7 @@ add_action( 'after_setup_theme', 'melaine_hunley_setup' );
 /**
  * Implement the Custom Header feature.
  */
-require get_template_directory() . '/inc/custom-header.php';
+// require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.
@@ -108,7 +108,7 @@ require get_template_directory() . '/inc/template-functions.php';
 /**
  * Customizer additions.
  */
-require get_template_directory() . '/inc/customizer.php';
+// require get_template_directory() . '/inc/customizer.php';
 
 /**
  * Extend Rest Api - API

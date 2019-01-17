@@ -49,8 +49,7 @@
                 </div>
 
                 <a class="col-8 col-sm-8 col-md-4" href="<?php echo get_site_url(); ?>" title="<?php bloginfo('name'); ?>" style="display: block;">
-                    <!-- <img class="header-logo my-1 ml-md-0  my-md-2 mx-auto" src="<?php echo get_template_directory_uri(); ?>/img/sddstudios-logo-2.png" alt="<?php bloginfo('name'); ?> Logo" > -->
-                    <img class="header-logo my-1 mx-auto" src="<?php echo get_site_url(); ?>/wp-content/uploads/2019/01/melaine-hunley_1024x512.png" alt="<?php bloginfo('name'); ?> Logo" >
+                    <img class="header-logo my-1 mx-auto" src="<?php echo get_site_url(); ?>/wp-content/themes/melaine-hunley/img/logo/melaine-hunley_1024x512.png" alt="<?php bloginfo('name'); ?> Logo" >
                     <h1 style="display: none;" ><?php bloginfo('name'); ?></h1>
                 </a>
                 

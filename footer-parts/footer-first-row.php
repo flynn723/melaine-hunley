@@ -1,5 +1,5 @@
 
-<div class="primary-color">
+<div class="footer-first-row primary-color">
     <div class="container">
         <!--Grid row-->
         <div class="row py-4 d-flex align-items-center">
