@@ -7,7 +7,7 @@
  * @package melaine_hunley
  */
 
-$THEME_VERSION = '0.0.2';
+$THEME_VERSION = '0.0.1';
 
 if ( ! function_exists( 'melaine_hunley_setup' ) ) :
   /**
