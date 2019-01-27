@@ -122,11 +122,11 @@ require get_template_directory() . '/inc/api/api.php';
 function melaine_hunley_scripts() {
   wp_enqueue_style( 'Font_Awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css' );
   wp_enqueue_style( 'Bootstrap_css', get_template_directory_uri() . '/css/bootstrap.min.css' );
-  // wp_enqueue_style( 'MDB', get_template_directory_uri() . '/css/mdb.min.css' );
-  wp_enqueue_style( 'MDB', get_template_directory_uri() . '/css/mdb.css' );
-  wp_enqueue_style( 'PinkSkin', get_template_directory_uri() . '/css/pinkskin.css' );
 
-  wp_enqueue_style( 'Rosarivo', 'https://fonts.googleapis.com/css?family=Rosarivo' );
+  wp_enqueue_style( 'MDB', get_template_directory_uri() . '/css/mdb.min.css' );
+  // wp_enqueue_style( 'MDB', get_template_directory_uri() . '/css/mdb.css' );
+
+  wp_enqueue_style( 'Rosarivo', 'https://fonts.googleapis.com/css?family=Rosarivo|Pinyon+Script' );
   wp_enqueue_style( 'fonts', get_template_directory_uri() . '/css/fonts.css' );
 
   wp_enqueue_style( 'Style', get_template_directory_uri() . '/style.css', $THEME_VERSION );
