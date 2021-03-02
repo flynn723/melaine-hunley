@@ -24,7 +24,7 @@ if ( ! function_exists( 'melaine_hunley_entry_footer' ) ) :
 				// echo '</ul>';
 				echo '<div class="categories-badges-row row mb-3"><div class="col">Posted in: ';
 					foreach( $categories_list as $category ) {
-							echo '<a class="badge badge-pink mr-1" href="' . get_site_url() . '/category/' . $category->slug . '" title="' . $category->cat_name . '">' . $category->cat_name . '</a>';
+							echo '<a class="badge badge-black mr-1" href="' . get_site_url() . '/category/' . $category->slug . '" title="' . $category->cat_name . '">' . $category->cat_name . '</a>';
 					}
 				echo '</div></div>';
 			}
@@ -35,7 +35,7 @@ if ( ! function_exists( 'melaine_hunley_entry_footer' ) ) :
 				echo '<div class="tags-badges-row row mb-3"><div class="col">Tagged: ';
 					foreach( $tags_list as $tag ) {
 						// nav-item
-							echo '<a class="badge badge-pink mr-1" href="' . get_site_url() . '/tag/' . $tag->slug . '" title="' . $tag->name . '">' . $tag->name . '</a>';
+							echo '<a class="badge badge-black mr-1" href="' . get_site_url() . '/tag/' . $tag->slug . '" title="' . $tag->name . '">' . $tag->name . '</a>';
 					}
 				echo '</div></div>';
 			}
@@ -118,26 +118,24 @@ endif;
 
 
 if ( ! function_exists( 'melaine_hunley_post_navigation' ) ) :
-	function melaine_hunley_post_navigation() {
-		?>
+	function melaine_hunley_post_navigation() { /* ?>
 
 		<div id="post-navigation" class="row py-3 mt-3 mb-3">
 			<?php
-			$prev_post = get_previous_post( true, array(), 'jetpack-portfolio-type' );
+			$prev_post = get_previous_post( true, array() );
 			 if( $prev_post ): ?>
 			    <div class="col col-previous text-left">
 			        <a href="<?php echo $prev_post->guid; ?>" title="Previous" style="display: block;" ><i class="fa fa-arrow-left"></i> Previous</a>
 			    </div>
 			<?php endif; ?>
 			<?php 
-			$next_post = get_next_post( true, array(), 'jetpack-portfolio-type' );
+			$next_post = get_next_post( true, array() );
 			if( $next_post ): ?>
 			    <div class="col col-next text-right">
 			        <a href="<?php echo $next_post->guid; ?>" title="Next" style="display: block;" >Next <i class="fa fa-arrow-right"></i></a>
 			    </div>
 			<?php endif; ?>
 		</div>
-
-		<?php
+		<?php */
 	}
 endif;

@@ -7,7 +7,7 @@
  * @package melaine_hunley
  */
 
-$THEME_VERSION = '0.0.1';
+define('THEME_VERSION', '2.3.0');
 
 if ( ! function_exists( 'melaine_hunley_setup' ) ) :
   /**
@@ -24,7 +24,7 @@ if ( ! function_exists( 'melaine_hunley_setup' ) ) :
      * If you're building a theme based on Melaine Hunley, use a find and replace
      * to change 'melaine-hunley' to the name of your theme in all the template files.
      */
-    load_theme_textdomain( 'melaine-hunley', get_template_directory() . '/languages' );
+    // load_theme_textdomain( 'melaine-hunley', get_template_directory() . '/languages' );
 
     // Add default posts and comments RSS feed links to head.
     add_theme_support( 'automatic-feed-links' );
@@ -49,9 +49,7 @@ if ( ! function_exists( 'melaine_hunley_setup' ) ) :
       'left_header' => __( 'Left Header Menu'),
       'right_header' => __( 'Right Header Menu'),
       'mobile_sidebar' => __( 'Mobile Sidebar Menu'),
-      'footer1' => __( 'Footer #1 Column'),
-      'footer2' => __( 'Footer #2 Column'),
-      'footer3' => __( 'Footer #3 Column')
+      'footer_menu' => __( 'Footer Menu'),
     ));
 
     /*
@@ -86,6 +84,14 @@ if ( ! function_exists( 'melaine_hunley_setup' ) ) :
       'flex-width'  => true,
       'flex-height' => true,
     ) );
+
+    /**
+     * Register Gallery post type
+     *
+     * @link https://codex.wordpress.org/Theme_Logo
+     */
+    require get_template_directory() . '/inc/gallery-post-type.php';
+
   }
 endif;
 add_action( 'after_setup_theme', 'melaine_hunley_setup' );
@@ -126,18 +132,24 @@ function melaine_hunley_scripts() {
   wp_enqueue_style( 'MDB', get_template_directory_uri() . '/css/mdb.min.css' );
   // wp_enqueue_style( 'MDB', get_template_directory_uri() . '/css/mdb.css' );
 
-  wp_enqueue_style( 'Rosarivo', 'https://fonts.googleapis.com/css?family=Rosarivo|Pinyon+Script' );
-  wp_enqueue_style( 'fonts', get_template_directory_uri() . '/css/fonts.css' );
+  wp_enqueue_style( 'Font-families', 'https://fonts.googleapis.com/css?family=Rosarivo:400,italic|Spinnaker|Pinyon+Script' );
 
-  wp_enqueue_style( 'Style', get_template_directory_uri() . '/style.css', $THEME_VERSION );
+  wp_enqueue_style( 'fonts', get_template_directory_uri() . '/css/fonts.css', array(), THEME_VERSION );
 
-  wp_enqueue_script( 'jQuery', get_template_directory_uri() . '/js/jquery-2.2.3.min.js', array(), $THEME_VERSION, true );
-  wp_enqueue_script( 'Tether', get_template_directory_uri() . '/js/tether.min.js', array('jquery'), $THEME_VERSION, true );
-  wp_enqueue_script( 'Bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), $THEME_VERSION, true );
+  wp_enqueue_style( 'Style', get_template_directory_uri() . '/style.css', array(), THEME_VERSION );
+
+  wp_enqueue_script( 'jQuery', get_template_directory_uri() . '/js/jquery-2.2.3.min.js', array(), THEME_VERSION, true );
+  wp_enqueue_script( 'Tether', get_template_directory_uri() . '/js/tether.min.js', array('jquery'), THEME_VERSION, true );
+  wp_enqueue_script( 'Bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', array('jquery'), THEME_VERSION, true );
   // wp_enqueue_script( 'MDB', get_template_directory_uri() . '/js/mdb.min.js', array(), '1.0.0', true );
-  wp_enqueue_script( 'MDB', get_template_directory_uri() . '/js/mdb.js', array('jquery'), $THEME_VERSION, true );
+  wp_enqueue_script( 'MDB', get_template_directory_uri() . '/js/mdb.js', array('jquery'), THEME_VERSION, true );
 
-  wp_enqueue_script( 'Theme', get_template_directory_uri() . '/js/theme.js', array('jquery'), $THEME_VERSION, true );
+  wp_enqueue_script( 'Theme', get_template_directory_uri() . '/js/theme.js', array('jquery'), THEME_VERSION, true );
+  $localize_data = array(
+    'site_url' => get_site_url(),
+    'template_directory_uri' => get_template_directory_uri()
+  );
+  wp_localize_script( 'Theme', 'WPSettings', $localize_data );
 
   wp_enqueue_script( 'radical-skin-care-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -164,41 +176,23 @@ require_once('inc/extend-woocommerce.php');
  */
 function melaine_hunley_widgets_init() {
 
-  // register_sidebar( array(
-  //   'name'          => 'Sidebar',
-  //   'id'            => 'page-sidebar',
-  //   'before_widget' => '<div id="%1$s">',
-  //   'after_widget'  => '</div>',
-  //   'before_title'  => '',
-  //   'after_title'   => '',
-  // ) );
-
   register_sidebar( array(
     'name'          => 'Page Sidebar',
     'id'            => 'page-sidebar',
-    'before_widget' => '<div id="%1$s" class="widget-item card">',
-    'after_widget'  => '<a href="#" class="btn btn-pink">Learn More</a></div></div>',
-    'before_title'  => '<img class="img-fluid w-100" src="http://local.wptestersite.com/wp-content/uploads/2018/04/liz-and-rachel.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title">',
-    'after_title'   => '</h4>',
+    'before_widget' => '<div id="%1$s" class="widget-item card p-3 mb-5">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<div class="card-body"><h4 class="card-title">',
+    'after_title'   => '</h4></div>',
   ) );
 
   register_sidebar( array(
     'name'          => 'Post Sidebar',
     'id'            => 'post-sidebar',
-    'before_widget' => '<div id="%1$s" class="widget-item card">',
-    'after_widget'  => '<a href="#" class="btn btn-pink">Learn More</a></div></div>',
-    'before_title'  => '<img class="img-fluid w-100" src="http://local.wptestersite.com/wp-content/uploads/2018/04/liz-and-rachel.jpg" alt="Card image cap"><div class="card-body"><h4 class="card-title">',
-    'after_title'   => '</h4>',
+    'before_widget' => '<div id="%1$s" class="widget-item card p-3 mb-5">',
+    'after_widget'  => '</div>',
+    'before_title'  => '<div class="card-body"><h4 class="card-title">',
+    'after_title'   => '</h4></div>',
   ) );
-
-  // register_sidebar( array(
-  //   'name'          => 'Contact Sidebar',
-  //   'id'            => 'contact-sidebar',
-  //   'before_widget' => '<div id="%1$s" class="widget-item card">',
-  //   'after_widget'  => '<a href="#" class="btn btn-pink">Learn More</a></div></div>',
-  //   'before_title'  => '<div class="card-body"><h4 class="card-title">',
-  //   'after_title'   => '</h4>',
-  // ) );
 
   register_sidebar( array(
     'name'          => 'Footer widget area',
@@ -254,11 +248,15 @@ function melaine_hunley_dynamic_sidebar_params($params){
     if (isset($widget_opt[$widget_num]['img_url'])){
       if(isset($widget_opt[$widget_num]['img_url']) && $widget_opt[$widget_num]['img_url'] !== "" ) {
           $img_url = $widget_opt[$widget_num]['img_url'];
-          $params[0]['after_widget'] = '<a href="' . $link . '" class="btn btn-pink">Learn More</a></div></div>';
-          $params[0]['before_title'] = '<img class="img-fluid w-100" src="' . $img_url . '" alt="Card image cap"><div class="card-body"><h4 class="card-title">';
+          $params[0]['after_widget'] = '<a href="' . $link . '" class="btn btn-outline-black">Learn More</a></div>';
+          $params[0]['before_title'] = '<img class="img-fluid w-100" src="' . $img_url . '" alt="Card Image"><div class="card-body"><h4 class="card-title">';
           $params[0]['after_title'] = '</h4>';
       } else {
-          $params[0]['after_widget'] = '<a href="' . $link . '" class="btn btn-pink">Learn More</a></div></div>';
+        if ( ! empty($link) ) {
+          $params[0]['after_widget'] = '<a href="' . $link . '" class="btn btn-outline-black">Learn More</a></div>';
+        } else {
+          $params[0]['after_widget'] = '</div>';          
+        }
           $params[0]['before_title'] = '<h4 class="card-title">';
           $params[0]['after_title'] = '</h4>'; 
       }
@@ -276,33 +274,23 @@ add_filter('dynamic_sidebar_params', 'melaine_hunley_dynamic_sidebar_params');
 
 
 
-remove_filter( 'the_content', 'wpautop' );
-remove_filter( 'the_excerpt', 'wpautop' );
-remove_filter('widget_text_content', 'wpautop');
-
-
-
-add_filter( 'the_content', 'melaine_hunley_share' );
-function melaine_hunley_share( $content ) {
-    if ( is_singular('post') ) {
-        $content .= '<h4 class="mt-4">Share</h4>';
-    }
-    return $content;
-}
+// remove_filter( 'the_content', 'wpautop' );
+// remove_filter( 'the_excerpt', 'wpautop' );
+// remove_filter('widget_text_content', 'wpautop');
 
 
 add_action( 'wp_head', 'melaine_hunley_google_tag_manager');
 function melaine_hunley_google_tag_manager() { ?>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94106751-6"></script>
+  
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94106751-8"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'UA-94106751-6');
+  gtag('config', 'UA-94106751-8');
 </script>
+
 
 <?php
 }

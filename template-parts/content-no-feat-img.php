@@ -1,23 +1,23 @@
+<?php $sub_title = ( class_exists('acf') ) ? get_field( 'sub_title' ) : "Install Advanced Custom Fields plugin."; ?>
+<div class="container pt-5 mb-5">
+	<div class="row">
+		<div class="col text-center">
 
-<!-- <div class="page-title-container container mt-md-4"> -->
-	<div class="page-title-row row mb-4">
-		<div class="page-title-col col-12 pt-4 pb-4">
-			<h2 class="black-text mb-0" >
-				<?php if ( is_404() ) {
-					echo '404 - Page Not Found';
-				} else if ( is_home() ) {
-					echo get_bloginfo('name') . ' Blog';
-				} else {
-					the_title();
-				} ?>
-			</h2>
-			<?php
-			if( class_exists('acf') && get_field('sub_title') ) { ?>
-				<h4 class="grey-text mb-0"><?php the_field('sub_title'); ?></h4>
+			<?php if ( is_archive() ) {
+                $parent_term = get_queried_object();
+                // var_dump($parent_term);
+                $child_terms = get_term_children( $parent_term->term_id, 'gallery_category' ); ?>
+
+				<h1 class="font-family-pinyon" ><?php echo $parent_term->name; ?></h1>
+				<?php if ( $parent_term->description ) : ?><h3 class="text-uppercase font-family-rosarivo mb-0" ><?php echo $parent_term->description; ?></h3><?php endif; ?>
+
+			<?php } else { ?>
+
+				<h1 class="font-family-pinyon" ><?php the_title(); ?></h1>
+				<?php if ( $sub_title ) : ?><h3 class="text-uppercase font-family-rosarivo mb-0" ><?php echo $sub_title; ?></h3><?php endif; ?>
+
 			<?php } ?>
-			<?php if ( is_home() ) { ?>
-				<!-- <p class="grey-text mb-0"></p> -->
-			<?php } ?>
+
 		</div>
 	</div>
-<!-- </div> -->
+</div>

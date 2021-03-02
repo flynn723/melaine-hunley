@@ -5,7 +5,7 @@ $featured_img = ( isset($featured_img) ) ? $featured_img : 'https://mdbootstrap.
 <!-- Full Page Intro -->
 <div class="view jarallax" data-jarallax='{"speed": 0.2}' style="background-image: url('<?php echo $featured_img; ?>'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
   <!-- Mask & flexbox options-->
-  <div class="mask rgba-white-light d-flex justify-content-center align-items-center">
+  <div class="mask d-flex justify-content-center align-items-center">
 
     <div class="container">
 

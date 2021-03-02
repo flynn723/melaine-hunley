@@ -5,38 +5,38 @@
  * Template Name: About
  *
  */
-get_header(); ?>
+get_header(); 
+$show_feat_img = ( class_exists('acf') ) ? get_field( 'show_feat_img' ) : true; ?>
 
-<div class="about-wrapper">
+<div class="template-about">
 
-	<?php
-	if ( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) ) {
+	<?php if ( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) && $show_feat_img  ) {
 		get_template_part( 'template-parts/content', 'hero' );
 	} else {
 		get_template_part( 'template-parts/content', 'no-feat-img' ); 
 	}
 
-	while ( have_posts() )  { the_post(); ?>
+	if ( have_posts() ) : ?>
+				
+		<?php while ( have_posts() ) { the_post(); ?>
 
-	  <section class="page-content py-5">
-		  <div class="container">
-		  	<div class="row">
-		  		<div class="col-12 col-md-6">
-		  			<?php the_content(); ?>
-		  			<a href="/contact" class="btn btn-primary">Contact</a>
-		  		</div>
-		  		<div class="col-12 col-md-6">
-		  			<img src="http://box5114.temp.domains/~katiemo4/wp-content/uploads/pp/images/1520874442-DSC_7250%28pp_w1600_h2405%29.jpg" class="card w-100" style="border-radius: 0.25rem;" />
-		  		</div>
-		  	</div>
-		  </div>
-	  </section>
+			<section class="section-page-content container mb-5">
+				<div class="row">
+					<div class="col col-md-8 offset-lg-2">
+						<?php the_content(); ?>
+					</div>
+				</div>
+			</div>
 
-	  <?php
-	}
+		<?php }
 
-  get_template_part( 'home-parts/home', 'blog' );
-  ?>
+	else :
+
+		get_template_part( 'template-parts/content', 'none' );
+
+	endif;
+
+	// get_template_part( 'template-parts/content', 'instagram' ); ?>
 
 </div>
 

@@ -1,0 +1,36 @@
+[21-Mar-2020 20:47:21 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14
+[06-Jun-2020 23:17:23 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14
+[19-Jul-2020 17:52:31 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14
+[21-Aug-2020 03:27:20 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14
+[26-Sep-2020 22:42:06 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14
+[29-Oct-2020 19:20:58 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14
+[02-Dec-2020 20:47:55 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14
+[23-Dec-2020 14:15:24 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14
+[03-Jan-2021 09:24:19 CST6CDT] PHP Fatal error:  Uncaught Error: Call to undefined function get_header() in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/justine1/public_html/melaniehunley.com/wp-content/themes/melanie-hunley/index.php on line 14

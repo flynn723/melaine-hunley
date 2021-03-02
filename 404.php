@@ -8,18 +8,26 @@
  */
 
 get_header(); ?>
-<div class="page-wrapper wrapper clearfix">
 
-	<div class="page-container container card mt-md-4 mb-md-4">
-		<?php
-		get_template_part( 'template-parts/content', 'no-feat-img' ); 
-		?>
+<div class="template-404">
+
+    <div class="container pt-5 mb-5">
+      <div class="row">
+        <div class="col text-center">
+          <h1 class="font-family-pinyon" >404</h1>
+          <h3 class="text-uppercase font-family-rosarivo" >Page Not Found</h3>  
+        </div>
+      </div>
+    </div>
+
+	<div class="container mb-5">
 		<div class="row">
-			<div class="col-12">	
+			<div class="col text-center">
 				<p><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'melaine-hunley' ); ?></p>
 			</div>
 		</div>
-	</div><!-- end of <div class="container"> -->
+	</div>
 
 </div>
+
 <?php get_footer(); ?>

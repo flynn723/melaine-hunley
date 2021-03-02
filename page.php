@@ -11,40 +11,37 @@
  *
  * @package melaine_hunley
  */
-get_header(); ?>
-<div class="page-wrapper mt-md-4">
+get_header();
+$show_feat_img = ( class_exists('acf') ) ? get_field( 'show_feat_img' ) : true; ?>
 
-	<div class="page-container container card mb-md-4">
-		<?php
-		if ( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) ) {
-			get_template_part( 'template-parts/content', 'feat-jarallax' ); 
-		} else {
-			get_template_part( 'template-parts/content', 'no-feat-img' ); 
-		} ?>
-		<div class="row">
-			<?php if ( have_posts() ) : ?>
+<div class="template-page">
 
-				<div class="col-12">				
-					<?php while ( have_posts() ) { the_post(); ?>
+	<?php if ( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) && $show_feat_img  ) {
+		get_template_part( 'template-parts/content', 'hero' );
+	} else {
+		get_template_part( 'template-parts/content', 'no-feat-img' ); 
+	} 
 
-						<?php
-							get_template_part( 'template-parts/content', 'page' );
-						?>
+	if ( have_posts() ) {
 
-					<?php } ?>
+		while ( have_posts() ) { the_post(); ?>
 
+			<div class="container mb-5">
+				<div class="row">
+					<div class="col">
+						<?php the_content(); ?>
+					</div>
 				</div>
-				<!-- <div class="col-12">
-					<?php // get_sidebar(); ?>					
-				</div> -->
+			</div>
 
-			<?php else : ?>
+		<?php }
 
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
+	} else { 
 
-			<?php endif; ?>
-		</div>
-	</div><!-- end of <div class="container"> -->
+		get_template_part( 'template-parts/content', 'none' );
+
+	} ?>
 
 </div>
+
 <?php get_footer(); ?>

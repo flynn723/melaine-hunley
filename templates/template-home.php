@@ -6,20 +6,12 @@
  *
  */
 get_header(); ?>
-<div class="home-wrapper wrapper clearfix" style="background-color: #f7f7f7;" >
 
+<div class="template-home" >
   <?php
-  get_template_part( 'home-parts/home', 'hero' );
-
-  get_template_part( 'home-parts/home', 'about-portfolio-contact' );
-
-  get_template_part( 'home-parts/home', 'thank-you' );
+  get_template_part( 'home-parts/home', 'hero-carousel' );
+  // get_template_part( 'template-parts/content', 'instagram' );
   ?>
-
-  <?php
-  // get_template_part( 'home-parts/home', 'categories' );
-  ?>
-
 </div>
 
 <?php get_footer(); ?>

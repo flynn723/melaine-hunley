@@ -8,25 +8,23 @@
  */
 
 get_header(); ?>
-<div class="post-wrapper wrapper clearfix">
+<div class="template-post">
 
-	<div class="post-container container page-container-card card pt-3 mb-4">
+	<?php
+	if ( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) ) {
+		get_template_part( 'template-parts/content', 'single-feat-card' ); 
+	}
+	?>
 
-		<?php
-		if ( wp_get_attachment_url( get_post_thumbnail_id($post->ID) ) ) {
-			get_template_part( 'template-parts/content', 'single-feat-card' ); 
-		} else {
-			get_template_part( 'template-parts/content', 'no-feat-img' ); 
-		} ?>
-
+	<div class="container mb-5">
 		<div class="row">
-			<?php if ( have_posts() ) : ?>
 
-				<div class="col-12 col-md-9">			
-					<?php while ( have_posts() ) { the_post(); ?>
+			<div class="col">
 
-						<?php
-						// get_template_part( 'template-parts/content', get_post_type() );
+				<?php if ( have_posts() ) {
+
+					while ( have_posts() ) { the_post();
+
 						get_template_part( 'template-parts/content', 'single' );
 
 						melaine_hunley_post_navigation();
@@ -35,24 +33,27 @@ get_header(); ?>
 						if ( comments_open() || get_comments_number() ) :
 							comments_template();
 						endif;
-						?>
 
-					<?php } ?>
+					}
 
+		        } else { 
+
+		          get_template_part( 'template-parts/content', 'none' );
+
+		        } ?>
+
+		    </div>
+
+			<?php if ( is_active_sidebar( 'post-sidebar' ) ) { ?>
+
+		        <div class="col-md-4 col-lg-3">
+					<?php dynamic_sidebar( 'post-sidebar' ); ?>
 				</div>
-				<div class="post-sidebar-col col-12 col-md-3">
-            <?php if ( is_active_sidebar( 'post-sidebar' ) ) {
-                dynamic_sidebar( 'post-sidebar' );
-            } ?>				
-				</div>
 
-			<?php else : ?>
+        	<?php } ?>
 
-				<?php get_template_part( 'template-parts/content', 'none' ); ?>
-
-			<?php endif; ?>
 		</div>
-	</div><!-- end of <div class="container"> -->
+	</div>
 
 </div>
 <?php get_footer(); ?>

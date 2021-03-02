@@ -8,12 +8,25 @@
 
 ?>
 
-<!--Double navigation-->
+<style>
+nav.double-nav.white-black-skin-navbar a {
+    position: initial;
+    left: 0;
+}
+.header-site-name {
+    font-size: 1.75rem;
+    padding: .75rem 0 0;
+}
+@media (min-width: 768px) {
+    .header-site-name {
+        font-size: 2.5rem;
+    }    
+}
+</style>
 <header>
     
     <?php
     get_template_part( 'header-parts/header', 'sidebar' );
-
     ?>
 
     <nav class="navbar white-black-skin-navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
@@ -25,9 +38,9 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 pr-md-0 collapse navbar-collapse" id="navbarNav1">
+                <div class="col-md pr-md-0 collapse navbar-collapse" id="navbarNav1">
                     <div class="row w-100">
-                        <div class="col-md-12 col-lg-12 p-md-0">
+                        <div class="col-md-12 col-lg-12 pr-md-0">
                             <?php
                             if ( has_nav_menu( 'left_header' ) ) {
                                 wp_nav_menu( array(
@@ -41,16 +54,17 @@
                                     'walker'            => new WP_Bootstrap_Navwalker())
                                 );
                             } else { ?>
-                                <p>Please assign Left Header Menu in Wordpress Admin -> Appearance -> Menus -> Manage Locations.</p>
+                                <p class="black-text mb-0" >Please assign Left Header Menu in Wordpress Admin -> Appearance -> Menus -> Manage Locations.</p>
                                 <?php
                             } ?>    
                         </div>
                     </div>
                 </div>
 
-                <a class="col-8 col-sm-8 col-md-4" href="<?php echo get_site_url(); ?>" title="<?php bloginfo('name'); ?>" style="display: block;">
-                    <img class="header-logo my-1 mx-auto" src="<?php echo get_site_url(); ?>/wp-content/themes/melaine-hunley/img/logo/melaine-hunley_1024x512.png" alt="<?php bloginfo('name'); ?> Logo" >
-                    <h1 style="display: none;" ><?php bloginfo('name'); ?></h1>
+                <a class="col-8 col-sm-8 col-md-auto text-center py-1" href="<?php echo get_site_url(); ?>" title="<?php bloginfo('name'); ?>" style="display: block;">
+                    <!-- <img class="header-logo mx-auto" src="<?php echo get_site_url(); ?>/wp-content/themes/melanie-hunley/img/logo/melaine-hunley_1024x512.png" alt="<?php bloginfo('name'); ?> Logo" > -->
+                    <h1 class="header-site-name font-family-pinyon mb-0" ><?php bloginfo('name'); ?></h1>
+                    <p class="d-none d-lg-block font-family-pinyon mb-0" >Wedding, Elopement, and Portrait Photographer</p>
                 </a>
                 
                 <div class="col-2 col-sm-2 hidden-md-up text-right pr-0">
@@ -62,13 +76,13 @@
                     </div>
                 </div>
 
-                <div class="col-md-4 pr-md-0 collapse navbar-collapse" id="navbarNav1">
+                <div class="col-md pr-md-0 collapse navbar-collapse" id="navbarNav1">
                     <div class="row w-100">
-                        <div class="col-md-12 col-lg-12 p-md-0">
+                        <div class="col-md-12 col-lg-12 pl-md-0">
                             <?php
                             if ( has_nav_menu( 'right_header' ) ) {
                                 wp_nav_menu( array(
-                                    'menu'              => '2',
+                                    'menu'              => 'Right Header Menu',
                                     'theme_location'    => 'right_header',
                                     'depth'             => 2,
                                     // navbar-nav 
@@ -78,7 +92,7 @@
                                     'walker'            => new WP_Bootstrap_Navwalker())
                                 );
                             } else { ?>
-                                <p>Please assign Right Header Menu in Wordpress Admin -> Appearance -> Menus -> Manage Locations.</p>
+                                <p class="black-text mb-0" >Please assign Right Header Menu in Wordpress Admin -> Appearance -> Menus -> Manage Locations.</p>
                                 <?php
                             } ?>  
                         </div>
@@ -95,16 +109,5 @@ jQuery(document).ready(function($) {
     // SideNav Button Initialization
     jQuery(".button-collapse").sideNav();
     new WOW().init();
-    // SideNav Scrollbar Initialization
-    var sideNavScrollbar = document.querySelector('.custom-scrollbar');
-    Ps.initialize(sideNavScrollbar);
-    // currency converter
-    // setTimeout(function() {
-    //     header_Navbar_Toggle_Currency_Icon( $('.header-navbar-currency-toggle-dropdown  ul.currency_switcher a.active') ); 
-    // }), 250;
-    // jQuery('ul.currency_switcher a').on('click', function () {
-    //     header_Navbar_Toggle_Currency_Icon( jQuery(this) );  
-        console.log('test');  
-    // });
 });
 </script>

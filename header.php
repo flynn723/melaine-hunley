@@ -13,7 +13,7 @@
     <?php wp_head(); ?>
 
 </head>
-<body <?php body_class('black-skin hidden-sn'); ?>>  
+<body <?php body_class('melanie-hunley'); ?>>  
 
     <?php
     get_template_part( 'header-parts/header', 'navbar' );
