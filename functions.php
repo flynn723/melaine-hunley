@@ -134,7 +134,7 @@ function melaine_hunley_scripts() {
 
   wp_enqueue_style( 'Font-families', 'https://fonts.googleapis.com/css?family=Rosarivo:400,italic|Spinnaker|Pinyon+Script' );
 
-  wp_enqueue_style( 'fonts', get_template_directory_uri() . '/css/fonts.css', array(), THEME_VERSION );
+  // wp_enqueue_style( 'fonts', get_template_directory_uri() . '/css/fonts.css', array(), THEME_VERSION );
 
   wp_enqueue_style( 'Style', get_template_directory_uri() . '/style.css', array(), THEME_VERSION );
 
@@ -264,7 +264,6 @@ function melaine_hunley_dynamic_sidebar_params($params){
     return $params;
 }
 
-
 //Add input fields(priority 5, 3 parameters)
 add_action('in_widget_form', 'melaine_hunley_in_widget_form',5,3);
 //Callback function for options update (priorität 5, 3 parameters)
@@ -272,32 +271,28 @@ add_filter('widget_update_callback', 'melaine_hunley_in_widget_form_update',5,3)
 //add class names (default priority, one parameter)
 add_filter('dynamic_sidebar_params', 'melaine_hunley_dynamic_sidebar_params');
 
-
-
 // remove_filter( 'the_content', 'wpautop' );
 // remove_filter( 'the_excerpt', 'wpautop' );
 // remove_filter('widget_text_content', 'wpautop');
 
+// melaine_hunley_google_tag_manager
+add_action( 'wp_head', function () { ?>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94106751-8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-add_action( 'wp_head', 'melaine_hunley_google_tag_manager');
-function melaine_hunley_google_tag_manager() { ?>
-  
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94106751-8"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-94106751-8');
-</script>
-
-
-<?php
-}
+    gtag('config', 'UA-94106751-8');
+  </script>
+  <?php
+});
 
 
-
-
+/**
+ * Extend WooCommerce
+ */
+require_once('inc/acf.php');
 
 
 

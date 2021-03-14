@@ -28,7 +28,7 @@
 							    </div>
 					        <?php } ?>
 						    <div class="col-lg-7">
-								<h3 class="font-weight-bold mb-3 text-uppercase font-family-rosarivo"><?php echo $title; ?></h3>
+								<h3 class="font-weight-bold mb-3 text-uppercase heading-secondary"><?php echo $title; ?></h3>
 								<div class="desc"><?php echo $description; ?></div>
 						    </div>
 					        <?php if ( $inc%2 == 0 ) { ?>

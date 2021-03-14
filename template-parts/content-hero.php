@@ -21,7 +21,7 @@ $sub_title = ( class_exists('acf') ) ? get_field( 'sub_title' ) : "Install Advan
           <h1 class="pt-5 white-text font-family-pinyon mb-5">
             <?php the_title(); ?>
           </h1>
-          <h3 class="text-uppercase white-text font-family-rosarivo"><em><?php echo $sub_title; ?></em></h3>
+          <h3 class="text-uppercase white-text heading-secondary"><em><?php echo $sub_title; ?></em></h3>
         </div>
       </div>
 

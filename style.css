@@ -522,8 +522,6 @@ nav.navbar.pink-white-skin-navbar.top-nav-collapse form input[type=text] {
 @media (min-width: 992px) {
     .header-navbar-row .nav-item .nav-link {
         padding: 36px 1rem;
-        font-size: 12px;
-        text-transform: uppercase;
     }    
     .menu-item ul.dropdown-menu li a.dropdown-item {
         font-size: 12px;
@@ -545,14 +543,8 @@ nav.navbar.pink-white-skin-navbar.top-nav-collapse form input[type=text] {
 .header-navbar-currency-toggle-dropdown .currency_switcher {
     padding-left: 0;
 }
-header .navbar ul.dropdown-menu li a.dropdown-item {
-    color: #444 !important;
-    background: #fff;
-}
 header .navbar ul.dropdown-menu li a.dropdown-item:hover,
 header .navbar ul.dropdown-menu li a.dropdown-item:focus {
-    color: #444 !important;
-    background: #fff;
     box-shadow: none;
 }
 @media ( min-width: 576px ) {
@@ -1137,4 +1129,7 @@ ul.social li a {
 }
 footer.page-footer .footer-copyright {
     background: transparent;
+}
+.btn {
+    box-shadow: none;
 }

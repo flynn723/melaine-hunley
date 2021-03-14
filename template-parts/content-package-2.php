@@ -63,7 +63,7 @@
                     <a href="#!">
                       <div class="text-white d-flex mask <?php echo $mask_colors[$inc]; ?>-gradient-rgba">
                         <div class="first-content align-self-center p-3">
-                          <h3 class="card-title text-uppercase font-family-rosarivo mb-0"><?php echo $title; ?></h3>
+                          <h3 class="heading-secondary mb-0"><?php echo $title; ?></h3>
                           <p class="lead mb-0">See details.</p>
                         </div>
                         <div class="second-content align-self-center mx-auto text-center">
@@ -75,7 +75,7 @@
                   </div>
 
                   <div class="third-content ml-auto mr-4 mb-2">
-                    <h3 class="third-content-title text-uppercase font-family-rosarivo text-right mb-0" ><?php echo $title; ?></h3>
+                    <h3 class="third-content-title heading-secondary text-right mb-0" ><?php echo $title; ?></h3>
                     <!-- <h4 class="font-weight-bold float-right">$175 - $300</h4> -->
                   </div>
 

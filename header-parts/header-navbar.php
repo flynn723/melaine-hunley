@@ -5,30 +5,40 @@
  *
  * @package melaine_hunley
  */
-
+$site_name_style = '';
+$header = get_field('header', 'option');
+if ($header) {
+    if ($header['site_name']) {
+        $site_name_style = 'font-family: \'' . $header['site_name']['typography']['font_family'] . '\', Arial, Helvetica, sans-serif; font-weight: ' . $header['site_name']['typography']['font_weight'] . '; font-style: ' .  $header['site_name']['typography']['font_style'] . '; color: ' . $header['site_name']['typography']['text_color'] . '; font-size: ' . $header['site_name']['typography']['font_size'] . 'px;';
+    }
+    if ($header['sub_title']) {
+        $sub_title_style = 'font-family: \'' . $header['sub_title']['typography']['font_family'] . '\', Arial, Helvetica, sans-serif; font-weight: ' . $header['sub_title']['typography']['font_weight'] . '; font-style: ' .  $header['sub_title']['typography']['font_style'] . '; color: ' . $header['sub_title']['typography']['text_color'] . '; font-size: ' . $header['sub_title']['typography']['font_size'] . 'px;';
+    }
+    if ($header['menu_items']) {
+        $menu_items_style = 'font-family: \'' . $header['menu_items']['typography']['font_family'] . '\', Arial, Helvetica, sans-serif; font-weight: ' . $header['menu_items']['typography']['font_weight'] . '; font-style: ' .  $header['menu_items']['typography']['font_style'] . '; color: ' . $header['menu_items']['typography']['text_color'] . '; font-size: ' . $header['menu_items']['typography']['font_size'] . 'px; text-transform: ' . $header['menu_items']['typography']['text_transform'];
+    }
+}
+// var_dump($header);
 ?>
-
 <style>
 nav.double-nav.white-black-skin-navbar a {
     position: initial;
     left: 0;
 }
-.header-site-name {
-    font-size: 1.75rem;
-    padding: .75rem 0 0;
+#header-site-name {
+    padding: 0.75rem 0 0;
 }
-@media (min-width: 768px) {
-    .header-site-name {
-        font-size: 2.5rem;
-    }    
+<?php if ($header && $header['menu_items']) { ?>
+.header-navbar-row .nav-item .nav-link,
+header .navbar ul.dropdown-menu li a.dropdown-item {
+    <?php echo $menu_items_style; ?>
 }
+<?php } ?>
 </style>
 <header>
-    
     <?php
     get_template_part( 'header-parts/header', 'sidebar' );
     ?>
-
     <nav class="navbar white-black-skin-navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
         <div class="container px-md-0">
             <div class="row w-100" style="margin-left: 0;">
@@ -60,13 +70,11 @@ nav.double-nav.white-black-skin-navbar a {
                         </div>
                     </div>
                 </div>
-
                 <a class="col-8 col-sm-8 col-md-auto text-center py-1" href="<?php echo get_site_url(); ?>" title="<?php bloginfo('name'); ?>" style="display: block;">
                     <!-- <img class="header-logo mx-auto" src="<?php echo get_site_url(); ?>/wp-content/themes/melanie-hunley/img/logo/melaine-hunley_1024x512.png" alt="<?php bloginfo('name'); ?> Logo" > -->
-                    <h1 class="header-site-name font-family-pinyon mb-0" ><?php bloginfo('name'); ?></h1>
-                    <p class="d-none d-lg-block font-family-pinyon mb-0" >Wedding, Elopement, and Portrait Photographer</p>
+                    <h1 id="header-site-name" class="mb-0" style="<?php echo $site_name_style; ?>"><?php bloginfo('name'); ?></h1>
+                    <p class="d-none d-lg-block mb-0" style="<?php echo $sub_title_style; ?>">Wedding, Elopement, and Portrait Photographer</p>
                 </a>
-                
                 <div class="col-2 col-sm-2 hidden-md-up text-right pr-0">
                     <div style="display: none;">
                         <button class="navbar-toggler collapsed pink-text" type="button" data-toggle="collapse" data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation" style="font-size: 1.4rem; padding: 0;">
@@ -75,7 +83,6 @@ nav.double-nav.white-black-skin-navbar a {
                         </button>
                     </div>
                 </div>
-
                 <div class="col-md pr-md-0 collapse navbar-collapse" id="navbarNav1">
                     <div class="row w-100">
                         <div class="col-md-12 col-lg-12 pl-md-0">

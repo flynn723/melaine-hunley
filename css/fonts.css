@@ -2,18 +2,22 @@ body {
     font-family: "Spinnaker", Arial, Helvetica, sans-serif;
 	letter-spacing: 3px;
 }
+
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
     font-family: "Spinnaker", Arial, Helvetica, sans-serif;
 	letter-spacing: 1px;
 }
+
 .font-family-pinyon {
 	font-family: "Pinyon Script", Arial, Helvetica, sans-serif;
 }
+
 .font-family-rosarivo {
 	font-family: 'Rosarivo', serif;
 	letter-spacing: 3px;
 }
+
 .font-family-spinmaker {
     font-family: "Spinnaker", Arial, Helvetica, sans-serif;
 }

@@ -10,19 +10,13 @@ $all_wp_pages = $query->query(
                   )
                 );
 $page_children = get_page_children($obj->ID, $all_wp_pages); ?>  
-
 <section class="section-portfolio-categories mb-5">
-
   <div class="container">
     <div class="row row-eq-height fadeIn wow">
-        
         <?php 
-
         if ( ! empty($page_children) ) {
-
-          foreach ( $page_children as $package_category ) { /* var_dump($package_category); */ ?>
+          foreach ( $page_children as $package_category ) { ?>
             <div class="col col-lg-4 mb-5 mb-lg-0">
-
               <!-- Card -->
               <div class="card card-package-category-<?php echo $package->ID; ?> h-100">
                 <?php
@@ -36,31 +30,23 @@ $page_children = get_page_children($obj->ID, $all_wp_pages); ?>
                 <!-- Card content -->
                 <div class="card-body text-center">
                   <!-- Title -->
-                  <h4 class="card-title text-uppercase">
+                  <h4 class="heading-secondary">
                     <a href="<?php the_permalink( $package_category->ID ); ?>" title="<?php echo $package_category->post_title; ?>" class="black-text" ><?php echo $package_category->post_title; ?></a>
                   </h4>
                   <?php if ( $package_category->post_excerpt ) { ?>
                     <p class="card-text"><?php echo $package_category->post_excerpt; ?></p>
                   <?php } ?>
-                  <a href="<?php the_permalink( $package_category->ID ); ?>" title="<?php echo $package_category->post_title; ?>" class="btn btn-outline-black ml-0">Read More...</a>
+                  <a href="<?php the_permalink( $package_category->ID ); ?>" title="<?php echo $package_category->post_title; ?>" class="btn btn-outline-black ml-0"><?php echo $buttons['default_cta_text']; ?></a>
                   <?php  ?>
                 </div>
-
               </div>
-              
             </div>
-
           <?php }
-        
         } else { ?>
-
           <div class="col text-center">
             <p>No package pages.</p>
           </div>
-
         <?php } ?>
-
     </div>
   </div>
-
 </section>

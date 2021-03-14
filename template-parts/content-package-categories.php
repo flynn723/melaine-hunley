@@ -37,13 +37,13 @@ $terms = array();
                 <!-- Card content -->
                 <div class="card-body text-center">
                   <!-- Title -->
-                  <h4 class="card-title text-uppercase">
+                  <h4 class="heading-secondary">
                     <a href="/gallery_category/<?php echo $term->slug; ?>" title="<?php echo $term->name; ?>" class="black-text" ><?php echo $term->name; ?></a>
                   </h4>
                   <?php if ( $term->description ) { ?>
                     <p class="card-text"><?php echo $term->description; ?></p>
                   <?php } ?>
-                  <a href="<?php echo $term->slug; ?>" title="<?php echo $term->name; ?>" class="btn btn-outline-black ml-0">Read More...</a>
+                  <a href="<?php echo $term->slug; ?>" title="<?php echo $term->name; ?>" class="btn btn-outline-black ml-0"><?php echo $buttons['default_cta_text']; ?></a>
                 </div>
 
               </div>
