@@ -91,8 +91,12 @@ MDB (Material Design Bootstrap) Override
     background-color: #888 !important;
     color: #ffffff !important;
 }
-.black-text, .btn.btn-link, .toast-close-button:hover, .toast-close-button:focus {
-    color: #444 !important;
+.text-black,
+.black-text,
+.btn.btn-link,
+.toast-close-button:hover,
+.toast-close-button:focus {
+    color: #222 !important;
 }
 .grey-text {
     color: #888;

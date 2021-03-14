@@ -19,26 +19,26 @@
 				        $description = get_sub_field('desc'); ?>
 
 						<div class="row mb-5">
-
 					        <?php if ( $inc%2 !== 0 ) { ?>
 							    <div class="col-lg-5 mb-5 mb-lg-0">
-							      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+							      <div class="view overlay rounded z-depth-2 mx-auto mb-lg-0 mb-4" style="max-width: 256px;">
 							        <img class="img-fluid w-100" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
 							      </div>
 							    </div>
 					        <?php } ?>
-						    <div class="col-lg-7">
-								<h3 class="font-weight-bold mb-3 text-uppercase heading-secondary"><?php echo $title; ?></h3>
-								<div class="desc"><?php echo $description; ?></div>
+						    <div class="d-flex align-items-center col-lg-7">
+								<div>
+									<h3 class="font-weight-bold mb-3 text-uppercase heading-secondary"><?php echo $title; ?></h3>
+									<div class="desc"><?php echo $description; ?></div>
+								</div>
 						    </div>
 					        <?php if ( $inc%2 == 0 ) { ?>
 							    <div class="col-lg-5 mb-5 mb-lg-0">
-							      <div class="view overlay rounded z-depth-2 mb-lg-0 mb-4">
+							      <div class="view overlay rounded z-depth-2 mx-auto mb-lg-0 mb-4" style="max-width: 256px;">
 							        <img class="img-fluid w-100" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
 							      </div>
 							    </div>
 					        <?php } ?>
-						
 						</div>
 
 				        <?php $inc++;

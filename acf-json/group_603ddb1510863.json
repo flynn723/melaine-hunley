@@ -35,8 +35,8 @@
             "sub_fields": [
                 {
                     "key": "field_604d9f1839f28",
-                    "label": "Headings",
-                    "name": "headings",
+                    "label": "Typography",
+                    "name": "typography",
                     "type": "Typography",
                     "instructions": "",
                     "required": 1,
@@ -89,8 +89,8 @@
             "sub_fields": [
                 {
                     "key": "field_604daf69aaca1",
-                    "label": "Secondary Headings",
-                    "name": "headings_secondary",
+                    "label": "Typography",
+                    "name": "typography",
                     "type": "Typography",
                     "instructions": "",
                     "required": 1,
@@ -103,7 +103,6 @@
                     "display_properties": [
                         "font_family",
                         "font_weight",
-                        "text_color",
                         "text_transform"
                     ],
                     "required_properties": [
@@ -483,5 +482,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1615708864
+    "modified": 1615714586
 }
