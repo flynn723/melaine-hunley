@@ -63,7 +63,7 @@ add_action('wp_head', function() {
   $headings = get_field('headings', 'option');
   $headings_secondary = get_field('headings_secondary', 'option');
   $body = get_field('body', 'option');
-  // var_dump('headings', $headings);
+  $buttons = get_field('buttons', 'option');
   ?>
   <style>
   <?php if ($headings) { ?>
@@ -81,6 +81,11 @@ add_action('wp_head', function() {
   <?php if ($body) { ?>
     body {
       <?php echo melanie_build_typography_css_properties($body['typography']); ?>
+    }
+  <?php } ?>
+  <?php if ($buttons) { ?>
+    .btn {
+      <?php echo melanie_build_typography_css_properties($buttons['typography']); ?>
     }
   <?php } ?>
   </style>

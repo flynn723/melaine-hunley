@@ -214,15 +214,13 @@
                     "display_properties": [
                         "font_size",
                         "font_family",
-                        "font_weight",
-                        "text_color"
+                        "font_weight"
                     ],
                     "required_properties": [
                         "font_size",
                         "font_family",
                         "font_weight",
-                        "font_style",
-                        "text_color"
+                        "font_style"
                     ],
                     "font_size": 16,
                     "font_family": "Spinnaker",
@@ -482,5 +480,5 @@
     "hide_on_screen": "",
     "active": 1,
     "description": "",
-    "modified": 1615714586
+    "modified": 1615718923
 }
