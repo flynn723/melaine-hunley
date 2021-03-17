@@ -60,12 +60,18 @@ function melanie_build_typography_css_properties( $typography, $important = fals
 }
 
 add_action('wp_head', function() {
+  $body_bg_color = get_field('body_bg_color', 'option');
   $headings = get_field('headings', 'option');
   $headings_secondary = get_field('headings_secondary', 'option');
   $body = get_field('body', 'option');
   $buttons = get_field('buttons', 'option');
   ?>
   <style>
+  <?php if ($body_bg_color) { ?>
+    body {
+      background-color: <?php echo $body_bg_color; ?> !important;
+    }
+  <?php } ?>
   <?php if ($headings) { ?>
     h1, h2, h3, h4, h5, h6,
     .h1, .h2, .h3, .h4, .h5, .h6,

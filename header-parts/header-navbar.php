@@ -9,16 +9,15 @@ $site_name_style = '';
 $header = get_field('header', 'option');
 if ($header) {
     if ($header['site_name']) {
-        $site_name_style = 'font-family: \'' . $header['site_name']['typography']['font_family'] . '\', Arial, Helvetica, sans-serif; font-weight: ' . $header['site_name']['typography']['font_weight'] . '; font-style: ' .  $header['site_name']['typography']['font_style'] . '; color: ' . $header['site_name']['typography']['text_color'] . '; font-size: ' . $header['site_name']['typography']['font_size'] . 'px;';
+        $site_name_style = melanie_build_typography_css_properties($header['site_name']['typography']);
     }
     if ($header['sub_title']) {
-        $sub_title_style = 'font-family: \'' . $header['sub_title']['typography']['font_family'] . '\', Arial, Helvetica, sans-serif; font-weight: ' . $header['sub_title']['typography']['font_weight'] . '; font-style: ' .  $header['sub_title']['typography']['font_style'] . '; color: ' . $header['sub_title']['typography']['text_color'] . '; font-size: ' . $header['sub_title']['typography']['font_size'] . 'px;';
+        $sub_title_style = melanie_build_typography_css_properties($header['sub_title']['typography']);
     }
     if ($header['menu_items']) {
-        $menu_items_style = 'font-family: \'' . $header['menu_items']['typography']['font_family'] . '\', Arial, Helvetica, sans-serif; font-weight: ' . $header['menu_items']['typography']['font_weight'] . '; font-style: ' .  $header['menu_items']['typography']['font_style'] . '; color: ' . $header['menu_items']['typography']['text_color'] . '; font-size: ' . $header['menu_items']['typography']['font_size'] . 'px; text-transform: ' . $header['menu_items']['typography']['text_transform'];
+        $menu_items_style = melanie_build_typography_css_properties($header['menu_items']['typography']);
     }
 }
-// var_dump($header);
 ?>
 <style>
 nav.double-nav.white-black-skin-navbar a {
@@ -29,17 +28,17 @@ nav.double-nav.white-black-skin-navbar a {
     padding: 0.75rem 0 0;
 }
 <?php if ($header && $header['menu_items']) { ?>
-.header-navbar-row .nav-item .nav-link,
-header .navbar ul.dropdown-menu li a.dropdown-item {
-    <?php echo $menu_items_style; ?>
-}
+    .header-navbar-row .nav-item .nav-link,
+    header .navbar ul.dropdown-menu li a.dropdown-item {
+        <?php echo $menu_items_style; ?>
+    }
 <?php } ?>
 </style>
 <header>
     <?php
     get_template_part( 'header-parts/header', 'sidebar' );
     ?>
-    <nav class="navbar white-black-skin-navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav">
+    <nav class="navbar fixed-top navbar-toggleable-md navbar-expand-lg scrolling-navbar double-nav" style="background-color: <?php echo $header['bg_color']; ?>;">
         <div class="container px-md-0">
             <div class="row w-100" style="margin-left: 0;">
                 <div class="left-sidebar-menu-col col-2 col-sm-2 col-md-4 hidden-md-up text-left text-sm-center pl-md-0">
